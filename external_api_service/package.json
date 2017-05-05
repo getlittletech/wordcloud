@@ -6,8 +6,8 @@
   "author": "Oleg",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server",
-    "debug": "node --inspect server",
+    "start": "nodemon app",
+    "debug": "node --inspect app",
     "guard": "guard",
     "dev": "npm-run-all --parallel start guard"
   },
