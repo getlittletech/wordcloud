@@ -1,13 +1,24 @@
-var path = require('path')
-var Express = require('express')
+// third party libs
+const express = require('express')
+const bodyParser = require('body-parser')
 
-const app = Express()
-const port = 3000
+// our imports
+const api = require('./api')
 
-app.use(handleRender)
+// setup express and init variables
+const app = express()
+app.use(bodyParser.json());
 
-function handleRender(req, res) {
-  res.send("Hello word cloud")
+const port = process.env.PORT || 3000
+
+// specify our api
+app.use('/api', api)
+
+// handle other requests
+app.use(handleRequest)
+
+function handleRequest(req, res) {
+  res.send("Hello, word cloud!")
 }
 
 app.listen(port)
