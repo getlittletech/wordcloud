@@ -12,6 +12,7 @@
     "dev": "npm-run-all --parallel start guard"
   },
   "dependencies": {
+    "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "isomorphic-fetch": "^2.2.1",
     "nock": "^9.0.11"

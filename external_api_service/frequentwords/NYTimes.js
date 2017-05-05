@@ -16,7 +16,6 @@ class NYTimes {
   		return response.json();
   	})
   	.then(articles => {
-  		console.log(articles);
       res.json({
         articles
       })
