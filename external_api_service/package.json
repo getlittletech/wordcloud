@@ -1,0 +1,24 @@
+{
+  "name": "external_api_service",
+  "version": "0.0.1",
+  "description": "service for communication with external api providers",
+  "main": "app.js",
+  "author": "Oleg",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server",
+    "debug": "node --inspect server",
+    "guard": "guard",
+    "dev": "npm-run-all --parallel start guard"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "isomorphic-fetch": "^2.2.1",
+    "nock": "^9.0.11"
+  },
+  "devDependencies": {
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  }
+}
