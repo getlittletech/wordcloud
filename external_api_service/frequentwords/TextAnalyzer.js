@@ -7,7 +7,7 @@ class TextAnalyzer {
 
     const allWords = TextAnalyzer.getWordsWithCounts(words)
 
-    const topWords = TextAnalyzer.getTopWords(allWords)
+    const topWords = TextAnalyzer.getTopWords(allWords, TextAnalyzer.MAX)
 
     return topWords
   }
@@ -32,7 +32,7 @@ class TextAnalyzer {
     return Array.from(allWords)
   }
 
-  static getTopWords(allWords) {
+  static getTopWords(allWords, count) {
     allWords.sort(([wordA, countA], [wordB, countB]) => {
       if (countA > countB) {
         return -1
@@ -42,7 +42,7 @@ class TextAnalyzer {
         return 0
       }
     })
-    return allWords.slice(0, TextAnalyzer.MAX)
+    return allWords.slice(0, count)
   }
 }
 
