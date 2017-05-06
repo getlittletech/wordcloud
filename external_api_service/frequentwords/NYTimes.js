@@ -1,11 +1,12 @@
 const fetch = require('isomorphic-fetch')
+const TextAnalyzer = require('./TextAnalyzer')
 
 const endpoint = 'https://api.nytimes.com/svc/search/v2/articlesearch.json'
 const apiKey = 'c36a095b8b2848319124456c61b1bea9'
 
 class NYTimes {
 
-  getArticles(searchQuery, res) {
+  static getWords(searchQuery, res) {
     console.log("search: ", searchQuery)
     const url = this.addParams(endpoint, searchQuery)
     fetch(url)
@@ -15,19 +16,32 @@ class NYTimes {
   		}
   		return response.json();
   	})
-  	.then(articles => {
-      res.json({
-        articles
-      })
+  	.then(responseJson => {
+      if (responseJson && responseJson.response && responseJson.response.docs) {
+          const articles = responseJson.response.docs
+
+          const text = articles.reduce((acc, cur) => {
+            return acc +
+              (cur.snippet != null ? cur.snippet : "") +
+              (cur.lead_paragraph != null ? cur.lead_paragraph : "") +
+              (cur.abstract != null ? cur.abstract : "")
+          }, "")
+
+          const frequency = TextAnalyzer.getFrequency(text)
+
+          res.json({frequency: frequency})
+      } else {
+        res.json({error: "No articles found"})
+      }
   	}).catch(error => {
-      console.log("error: ", err)
+      console.log("error: ", error)
       res.json({
-        error
+        error: "error: " + error
       })
     });
   }
 
-  addParams(endpoint, searchQuery) {
+  static addParams(endpoint, searchQuery) {
     let queryParam = '';
 
     if (searchQuery) {
