@@ -1,3 +1,5 @@
+const stopWords = require('./stopwords')
+
 class TextAnalyzer {
 
   static getFrequency(text) {
@@ -11,14 +13,19 @@ class TextAnalyzer {
   }
 
   static getWordsWithCounts(words) {
+    const stopSet = new Set(stopWords["stopwords"])
+
     const allWords = words.reduce((acc, word) => {
       const wordCount = acc.get(word)
-      console.log("word: " + word + ", cnt: " + wordCount)
-      if (wordCount) {
-        acc.set(word, wordCount + 1)
-      } else {
-        acc.set(word, 1)
+
+      if (!stopSet.has(word)) {
+        if (wordCount) {
+          acc.set(word, wordCount + 1)
+        } else {
+          acc.set(word, 1)
+        }
       }
+
       return acc;
     }, new Map())
 
