@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react'
+import SourceChooser from './SourceChooser'
+import WordDisplay from './WordDisplay'
 
 class WordCloud extends Component {
 
@@ -6,9 +8,13 @@ class WordCloud extends Component {
 
   render() {
     return (
-      <p>
-        WordCloud!
-      </p>
+      <div>
+        <p>
+          Word Cloud Service
+        </p>
+        <SourceChooser />
+        <WordDisplay />
+      </div>
     )
   }
 }
