@@ -5,6 +5,12 @@ import Feedback from './Feedback'
 
 import { fetchWords } from './actions'
 
+const style = {
+  wrapper: {
+    width: '100%'
+  }
+}
+
 class WordCloud extends Component {
 
   //static propTypes = {}
@@ -26,10 +32,10 @@ class WordCloud extends Component {
     const isFetching = this.props.wordcloud.isFetching
     const isError = this.props.wordcloud.isError
     return (
-      <div>
-        <p>
+      <div style={style.wrapper}>
+        <h1>
           Word Cloud Service
-        </p>
+        </h1>
         <SourceChooser />
         <Feedback isFetching={isFetching} isError={isError} />
         <WordDisplay words={this.props.wordcloud.words} />
