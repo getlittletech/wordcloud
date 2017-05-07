@@ -19,6 +19,9 @@ var config = {
     ]
   },
   plugins: [
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development', // default to development
+    })
   ],
   devtool: 'source-map'
 };

@@ -1,0 +1,39 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    links:
+      - external_api_service
+      - wordcloud_service
+    ports:
+      - "80:80"
+    networks:
+      - all
+  wordcloud_service:
+    image: node:alpine
+    volumes:
+      - ./wordcloud_service:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'yarn install; yarn dev'
+    expose:
+      - "3000"
+    links:
+      - external_api_service
+    networks:
+      - all
+
+  external_api_service:
+    image: node:alpine
+    volumes:
+      - ./external_api_service:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'yarn install; yarn dev'
+    expose:
+      - "3000"
+    networks:
+      - all
+
+networks:
+  all:

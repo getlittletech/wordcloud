@@ -1,14 +1,13 @@
 import * as constants from './constants'
 
-// TODO: change with a real url
-const endpoint = 'http://localhost:3000/api/frequentwords?source='
+const frequentWordsEndpoint = '/api/frequentwords?source='
 
 export function fetchWords(source) {
   console.log("fetchWords!")
   return dispatch => {
     console.log("fetchWords: will dispatch fetchWordsRequest");
     dispatch(fetchWordsRequest())
-    return fetch(endpoint + source)
+    return fetch(frequentWordsEndpoint + source)
       .then(res => {
         console.log("fetchWords: got results");
         return res.json()

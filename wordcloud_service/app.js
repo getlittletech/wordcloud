@@ -4,7 +4,7 @@ var express = require('express')
 var fs = require('fs')
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3000
 
 //Serve static files
 app.use('/static', express.static('static'));

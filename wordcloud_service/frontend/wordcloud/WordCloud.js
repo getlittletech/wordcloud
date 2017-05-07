@@ -17,7 +17,7 @@ class WordCloud extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchWords())
+    this.props.dispatch(fetchWords('nytimes'))
   }
 
   render() {
