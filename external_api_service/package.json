@@ -8,8 +8,7 @@
   "scripts": {
     "start": "nodemon app",
     "debug": "node --inspect app",
-    "guard": "guard",
-    "dev": "npm-run-all --parallel start guard"
+    "dev": "npm-run-all --parallel start"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
