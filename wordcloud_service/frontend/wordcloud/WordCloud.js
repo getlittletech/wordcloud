@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import SourceChooser from './SourceChooser'
 import WordDisplay from './WordDisplay'
+import Feedback from './Feedback'
 
 import { fetchWords } from './actions'
 
@@ -10,7 +11,6 @@ class WordCloud extends Component {
 
   constructor() {
     super()
-
     this.dataSource = {
       source: 'nytimes'
     }
@@ -21,13 +21,18 @@ class WordCloud extends Component {
   }
 
   render() {
+    console.log("WordCloud render")
+    const words = this.props.wordcloud.words
+    const isFetching = this.props.wordcloud.isFetching
+    const isError = this.props.wordcloud.isError
     return (
       <div>
         <p>
           Word Cloud Service
         </p>
         <SourceChooser />
-        <WordDisplay />
+        <Feedback isFetching={isFetching} isError={isError} />
+        <WordDisplay words={this.props.wordcloud.words} />
       </div>
     )
   }

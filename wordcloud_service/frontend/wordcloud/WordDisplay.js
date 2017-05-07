@@ -3,13 +3,14 @@ import React, { PropTypes } from 'react';
 const WordDisplay = ({words}) => {
   let message
 
-  if (!words) {
-    message = "Fetching words.."
-  }
   return (
-    <div>
-      <p>{message}</p>
-    </div>
+    <ul>
+      {words.map(word => {
+        return (
+          <li>{word[0]}: {word[1]}</li>
+        )
+      })}
+    </ul>
   )
 }
 
