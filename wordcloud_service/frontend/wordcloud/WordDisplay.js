@@ -1,9 +1,14 @@
 import React, { PropTypes } from 'react';
 
-const WordDisplay = () => {
+const WordDisplay = ({words}) => {
+  let message
+
+  if (!words) {
+    message = "Fetching words.."
+  }
   return (
     <div>
-      <p>WordDisplay</p>
+      <p>{message}</p>
     </div>
   )
 }

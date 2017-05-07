@@ -9,14 +9,8 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-  }
-}
-
 const App = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(WordCloud)
 
 export default App
