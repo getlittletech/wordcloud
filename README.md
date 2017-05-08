@@ -13,8 +13,9 @@ For the development flow one should use a docker-compose, that will load the src
 - install Docker
 - install Yarn
 - checkout the repo (https://github.com/getlittletech/wordcloud)
-- run the following command from the root directory of the project:
+- run the following command from the root directory of the project (oops, noticed some package that fails as dependency... so now I have to run the following command twice to make it work, since it fails the first time. Will look into it a bit later..):
 docker-compose up
+- start your browser and navigate to "localhost"
 
 2. What is left
 
