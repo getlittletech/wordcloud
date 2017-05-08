@@ -38,16 +38,39 @@ Here I will describe some of the aspects that are left off:
   I would setup automatic testing with Jest or another testing library. Planned to do it for the project, but didn't have enough time
 
 - validate input, sanitize output
-  Now the user is able to select the source.
+  Now the user is able to select the source. One could also provide an input field to specify the search query. User input coming into the app should be validated before using. Now we just pass it to the third party api, so it is not crucial. But still should be done. E.g. with https://www.npmjs.com/package/validator.
+  We should also sanitize the output we are getting from the third party APIs before adding it to our html. E.g. https://github.com/yahoo/xss-filters.
 
 - cleanup API response (leave only strings)
+
+  Now there might be some characters left in the responses from the external APIs
+
 - handle errors - e.g. if api service could not fetch words from external API, etc
+
+  now we have just a basic message on the screen. We could make it nicer
+
+- better styling
+
+  add more styling/css to make our output look nicer
+
 - other languages?
+
+  Perhaps we want to support other languages than english? This is not handled/tested properly at the moment.
+
 - Server side rendering
+
+  We could add more server side rendering. That's why I have chosen to use Node for the presentation microservice instead of serving static files. However didn't have enough time to add it.
+
 - https in prod for secure connections
+
 - use immutable lib
+
 - use pm2 for clustering
+
 - better user feedback: spinner, error messages
-- lint
+
+- lintint the code
+
 - react hot loader
-- add helmet
+
+- add helmet for additional security
