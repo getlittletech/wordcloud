@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import WordCloudLib from 'wordcloud'
-import { TagCloud } from "react-tagcloud"
+import { TagCloud } from 'react-tagcloud'
+import d3Cloud from 'd3.layout.cloud'
+
 import Selector from './Selector'
 
 const canvasStyle = {
-  width: '200px',
-  height: '200px'
+  width: '100%'
 };
 
 class WordDisplay extends Component {
@@ -24,8 +25,14 @@ class WordDisplay extends Component {
 
   componentDidUpdate() {
     if (this.state.type == "wordcloud_canvas") {
+      let width = window.innerWidth
+      console.log("width: ", width)
       WordCloudLib(document.getElementById('word_canvas'), {
-        list: this.props.words, minSize: '20px'
+        list: this.props.words,
+        gridSize: Math.round(16 * width / 1024),
+        weightFactor: function (size) {
+          return Math.pow(size, 2.3) * width / 1024;
+        }
       } )
     }
   }
