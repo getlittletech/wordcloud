@@ -26,7 +26,15 @@ Here I will describe some of the aspects that are left off:
 
   For a real development I would like to setup Continous Integration with e.g. Jenkins in a way, that on each commit the code is built, tested and deployed to the testing environment. Furthermore one could set it up to easily deploy to the further environments, such as staging or production
 
-  - setup automatic tests
+- add and publish Docker files
+
+  One should create and publish the Dockerfiles to enable production deployment
+
+- deployment to production
+
+  Decide on the hosting & orchestration. Since we have used Docker, the closest choices for managing the microservices, deployment and updates are Docker swarm or Kubernetes. One could host on a number of cloud platforms (AWS, Google container engine, perhaps Heroku). Alternatively one could host it on a Data Center too.
+
+- setup automatic tests
 
   I would setup automatic testing with Jest or another testing library. Planned to do it for the project, but didn't have enough time
 
