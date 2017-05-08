@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import WordCloudLib from 'wordcloud'
 import { TagCloud } from 'react-tagcloud'
-import d3Cloud from 'd3.layout.cloud'
 
 import Selector from './Selector'
 
