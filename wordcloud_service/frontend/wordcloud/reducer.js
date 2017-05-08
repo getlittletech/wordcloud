@@ -15,8 +15,8 @@ export default function wordcloud(state = {
         isError: false
       })
     case constants.FETCH_WORDS_FAILURE:
-    Object.assign({}, state, {
-      isFetching: false, isError: true})
+      return Object.assign({}, state, {
+        isFetching: false, isError: true})
     default:
       return state
   }
