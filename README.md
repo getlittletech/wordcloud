@@ -13,16 +13,8 @@ For the development flow one should use a docker-compose, that will load the src
 - install Docker
 - install Yarn
 - checkout the repo (https://github.com/getlittletech/wordcloud)
-- run the following commands (could be improved..):
-cd ./external_api_service/
-yarn install
-cd ../
-cd ../wordcloud_service/
-yarn install
-cd ..
+- run the following command from the root directory of the project:
 docker-compose up
-
-- i.e. one should run "docker-compose up" from the root directory of the project after installing the dependencies with yarn in both subprojects
 
 2. What is left
 
