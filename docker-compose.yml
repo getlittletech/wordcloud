@@ -12,7 +12,7 @@ services:
     networks:
       - all
   wordcloud_service:
-    image: node:alpine
+    build: ./wordcloud_service
     volumes:
       - ./wordcloud_service:/usr/src/app
     working_dir: /usr/src/app
@@ -25,7 +25,7 @@ services:
       - all
 
   external_api_service:
-    image: node:alpine
+    build: ./external_api_service
     volumes:
       - ./external_api_service:/usr/src/app
     working_dir: /usr/src/app
