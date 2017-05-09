@@ -15,8 +15,7 @@ services:
     build: ./wordcloud_service
     volumes:
       - ./wordcloud_service:/usr/src/app
-    working_dir: /usr/src/app
-    command: sh -c 'yarn install; yarn dev'
+      - /usr/src/app/node_modules
     expose:
       - "3000"
     links:
@@ -28,8 +27,7 @@ services:
     build: ./external_api_service
     volumes:
       - ./external_api_service:/usr/src/app
-    working_dir: /usr/src/app
-    command: sh -c 'yarn install; yarn dev'
+      - /usr/src/app/node_modules
     expose:
       - "3000"
     networks:
