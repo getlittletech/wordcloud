@@ -4,10 +4,6 @@ import { TagCloud } from 'react-tagcloud'
 
 import Selector from './Selector'
 
-const canvasStyle = {
-  width: '100%'
-};
-
 class WordDisplay extends Component {
   constructor() {
     super()
@@ -52,7 +48,7 @@ class WordDisplay extends Component {
             tags={data}
             onClick={tag => alert(`'${tag.value}' was selected!`)} />
     } else if (this.state.type == "wordcloud_canvas") {
-      wordCloud = <canvas id="word_canvas" style={canvasStyle}></canvas>
+      wordCloud = <canvas id="word_canvas" width="400" height="300"></canvas>
     }
     return (
       <div>
