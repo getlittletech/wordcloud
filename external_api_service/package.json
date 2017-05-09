@@ -6,9 +6,11 @@
   "author": "Oleg",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app",
+    "start": "pm2-docker start app.js",
+    "start:dev": "pm2-dev start app.js",
     "debug": "node --inspect app",
-    "dev": "npm-run-all --parallel start"
+    "log": "pm2 log",
+    "dev": "npm-run-all --parallel start:dev log"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -18,7 +20,6 @@
   },
   "devDependencies": {
     "jest": "^19.0.2",
-    "nodemon": "^1.11.0",
     "npm-run-all": "^4.0.2"
   }
 }
