@@ -1,13 +1,16 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import SourceSelector from './SourceSelector'
 import WordDisplay from './WordDisplay'
 import Feedback from './Feedback'
+import commonStyles from './styles'
+import Header from './Header'
 
 import { fetchWords, fetchWordsSuccess } from './actions'
 
 const style = {
   wrapper: {
-    width: '100%'
+    width: '100%',
+    color: commonStyles.secondaryColor
   }
 }
 
@@ -56,9 +59,7 @@ class WordCloud extends Component {
     const isError = this.props.wordcloud.isError || (isFetching == false && words.length == 0)
     return (
       <div style={style.wrapper}>
-        <h1>
-          Word Cloud Service
-        </h1>
+        <Header value="Whatsoever">Word Cloud Service</Header>
         <SourceSelector handleChange={this.handleSourceChange} />
         <Feedback isFetching={isFetching} isError={isError} />
         <WordDisplay words={words} />

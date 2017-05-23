@@ -1,8 +1,16 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import WordCloudLib from 'wordcloud'
 import { TagCloud } from 'react-tagcloud'
+import Radium from 'radium'
 
 import Selector from './Selector'
+
+const style = {
+  width: '100%',
+  '@media (min-width: 600px)': {
+    width: '50%'
+  }
+}
 
 class WordDisplay extends Component {
   constructor() {
@@ -51,17 +59,17 @@ class WordDisplay extends Component {
       wordCloud = <canvas id="word_canvas" width="400" height="300"></canvas>
     }
     return (
-      <div>
-        <div>
-          Choose the type: <Selector value={this.state.type} options={this.typeOptions} handleChange={this.handleTypeChange} />
-        </div>
+        <div style={style}>
+          <div>
+            Choose the type: <Selector value={this.state.type} options={this.typeOptions} handleChange={this.handleTypeChange} />
+          </div>
 
-        <div>
-          {wordCloud}
+          <div>
+            {wordCloud}
+          </div>
         </div>
-      </div>
     )
   }
 }
 
-export default WordDisplay
+export default Radium(WordDisplay)

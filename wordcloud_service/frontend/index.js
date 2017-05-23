@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import App from './main/App'
 import mainReducer from './main/reducer'
+import {StyleRoot} from 'radium'
 
 const store = createStore(
   mainReducer,
@@ -13,7 +14,9 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <App />
+    <StyleRoot>
+      <App />
+    </StyleRoot>
   </Provider>,
   document.getElementById('root')
 )

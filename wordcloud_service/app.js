@@ -20,6 +20,12 @@ function renderFullPage(html, preloadedState) {
     <html>
       <head>
         <title>Word cloud service</title>
+        <style>
+          body {
+              background-color:#F39C12;
+              height: 100%;
+          }
+        </style>
       </head>
       <body>
         <div id="root"></div>
