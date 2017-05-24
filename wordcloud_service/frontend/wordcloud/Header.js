@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import commonStyles from './styles'
+import {CommonVars} from '../main/Style'
 import Radium from 'radium'
 
 const style = {
   hover: {
     ":hover": {
-				color: commonStyles.thirdColor,
+				color: CommonVars.thirdColor,
 				cursor: "pointer"
 		}
   }

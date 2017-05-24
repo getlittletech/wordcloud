@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import SourceSelector from './SourceSelector'
 import WordDisplay from './WordDisplay'
 import Feedback from './Feedback'
-import commonStyles from './styles'
+import {CommonVars} from '../main/Style'
 import Header from './Header'
 
 import { fetchWords, fetchWordsSuccess } from './actions'
@@ -10,7 +10,7 @@ import { fetchWords, fetchWordsSuccess } from './actions'
 const style = {
   wrapper: {
     width: '100%',
-    color: commonStyles.secondaryColor
+    color: CommonVars.secondaryColor
   }
 }
 

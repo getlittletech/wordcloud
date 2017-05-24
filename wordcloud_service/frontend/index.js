@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 import App from './main/App'
+import MainStyle from './main/Style'
 import mainReducer from './main/reducer'
 import {StyleRoot} from 'radium'
 
@@ -15,6 +16,7 @@ const store = createStore(
 render(
   <Provider store={store}>
     <StyleRoot>
+      <MainStyle />
       <App />
     </StyleRoot>
   </Provider>,

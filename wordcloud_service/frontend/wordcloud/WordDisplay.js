@@ -6,9 +6,15 @@ import Radium from 'radium'
 import Selector from './Selector'
 
 const style = {
-  width: '100%',
-  '@media (min-width: 600px)': {
-    width: '50%'
+  wrapper: {
+    width: '100%',
+    '@media (min-width: 600px)': {
+      width: '50%'
+    }
+  },
+  chooser: {
+    fontStyle: 'italic',
+    marginBottom: '1em'
   }
 }
 
@@ -59,8 +65,9 @@ class WordDisplay extends Component {
       wordCloud = <canvas id="word_canvas" width="400" height="300"></canvas>
     }
     return (
-        <div style={style}>
-          <div>
+        <div style={style.wrapper}>
+
+          <div style={style.chooser}>
             Choose the type: <Selector value={this.state.type} options={this.typeOptions} handleChange={this.handleTypeChange} />
           </div>
 
