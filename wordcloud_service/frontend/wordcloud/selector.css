@@ -1,0 +1,28 @@
+@value selectHeight: 29px;
+@value selectDivWidth: 240px;
+@value selectWidth: 268px;
+@value selectBorderRadius: 15px;
+
+@value mainStyles: "./styles.css";
+@value thirdColor from mainStyles;
+
+.styledSelect {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: selectHeight;
+   width: selectDivWidth;
+   overflow: hidden;
+   border-radius: selectBorderRadius;
+   background-color: thirdColor;
+   color: #fff;
+   display: inline-block;
+   vertical-align: middle;
+}
+
+.styledSelect select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   width: selectWidth;
+   height: selectHeight;
+   padding: 5px;
+}

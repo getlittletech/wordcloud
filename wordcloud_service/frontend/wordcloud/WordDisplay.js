@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WordCloudLib from 'wordcloud'
+import Feedback from './Feedback'
 import { TagCloud } from 'react-tagcloud'
 import Radium from 'radium'
 
@@ -8,13 +9,13 @@ import Selector from './Selector'
 const style = {
   wrapper: {
     width: '100%',
-    '@media (min-width: 600px)': {
+    marginTop: '10px'
+    /*'@media (max-width: 600px)': {
       width: '50%'
-    }
+    }*/
   },
-  chooser: {
-    fontStyle: 'italic',
-    marginBottom: '1em'
+  wordcloud: {
+    marginTop: '40px'
   }
 }
 
@@ -57,9 +58,14 @@ class WordDisplay extends Component {
 
     let wordCloud = null
     if (this.state.type == "react-tagcloud") {
+      const colorOptions = {
+           luminosity: 'dark',
+           format: 'rgb'
+      };
       wordCloud = <TagCloud minSize={12}
             maxSize={35}
             tags={data}
+            colorOptions={colorOptions}
             onClick={tag => alert(`'${tag.value}' was selected!`)} />
     } else if (this.state.type == "wordcloud_canvas") {
       wordCloud = <canvas id="word_canvas" width="400" height="300"></canvas>
@@ -67,11 +73,13 @@ class WordDisplay extends Component {
     return (
         <div style={style.wrapper}>
 
-          <div style={style.chooser}>
+          <div>
             Choose the type: <Selector value={this.state.type} options={this.typeOptions} handleChange={this.handleTypeChange} />
           </div>
 
-          <div>
+          <Feedback isFetching={this.props.isFetching} isError={this.props.isError} />
+
+          <div style={style.wordcloud}>
             {wordCloud}
           </div>
         </div>

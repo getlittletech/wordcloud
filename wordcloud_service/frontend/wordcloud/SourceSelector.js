@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Selector from './Selector'
+import styles from './styles.css'
 
 class SourceSelector extends Component {
   constructor() {
@@ -19,7 +20,6 @@ class SourceSelector extends Component {
 
   handleChange(event) {
     this.setState({source: event.target.value})
-    console.log("AAAAA", this.props.handleChange)
     this.props.handleChange(event.target.value)
   }
 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import SourceSelector from './SourceSelector'
 import WordDisplay from './WordDisplay'
-import Feedback from './Feedback'
 import {CommonVars} from '../main/Style'
 import Header from './Header'
+import styles from './styles.css'
 
 import { fetchWords, fetchWordsSuccess } from './actions'
 
@@ -35,16 +35,17 @@ class WordCloud extends Component {
 
   handleSourceChange(source) {
     if (source != 'nytimes') {
-      alert("hej, you said it's enough with just NY Times!")
+      alert("this feature is not implemented, just NY Times this time.")
       this.props.dispatch(fetchWordsSuccess({frequency: [
-        ["hej", 2],
-        ["you", 7],
-        ["said", 8],
-        ["it's", 2],
-        ["enough", 5],
-        ["with", 4],
+        ["this", 2],
+        ["feature", 7],
+        ["is", 8],
+        ["not", 5],
+        ["implemented", 4],
         ["just", 3],
-        ["NY Times", 2]
+        ["NY Times", 2],
+        ["this", 3],
+        ["time", 1]
       ]}))
     } else {
       this.props.dispatch(fetchWords('nytimes'))
@@ -57,12 +58,12 @@ class WordCloud extends Component {
     const isFetching = this.props.wordcloud.isFetching
     // for now, consider it an error when isFetching if false and words.length is 0
     const isError = this.props.wordcloud.isError || (isFetching == false && words.length == 0)
+    console.log(styles)
     return (
       <div style={style.wrapper}>
         <Header value="Whatsoever">Word Cloud Service</Header>
         <SourceSelector handleChange={this.handleSourceChange} />
-        <Feedback isFetching={isFetching} isError={isError} />
-        <WordDisplay words={words} />
+        <WordDisplay words={words} isFetching={isFetching} isError={isError}/>
       </div>
     )
   }

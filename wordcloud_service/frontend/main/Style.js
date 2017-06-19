@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import {Style} from 'radium'
 
 export const CommonVars = {
-  primaryColor: '#F39C12',
-  secondaryColor: '#b712f3',
-  thirdColor: '#128ef3'
+  primaryColor: '#f4d66f',
+  secondaryColor: '#d05754',
+  thirdColor: '#41a1dd'
 }
 
 const MainStyle = () => {
