@@ -1,5 +1,9 @@
 Word Cloud demo project
 
+A quick playground for trying out things with React/Redux and show it to the world.
+
+The application loads an array of words from the selected source and displays it in a word cloud.
+
 1. Setup
 
 The project is setup to be run on a Docker platform.
@@ -18,9 +22,9 @@ For the development flow one should use a docker-compose, that will load the src
 
 - start your browser and navigate to "localhost"
 
-2. What is left
+2. Left TODO:
 
-Since my time for the project was limited, there are a few thins left that I did not have time to do.
+Since my time for the project was limited, there are a few things left that I did not have time to do.
 Here I will describe some of the aspects that are left off:
 
 - setup Continous Integration/Continous delivery
@@ -37,7 +41,7 @@ Here I will describe some of the aspects that are left off:
 
 - setup automatic tests
 
-  I would setup automatic testing with Jest or another testing library. Planned to do it for the project, but didn't have enough time
+  I would setup automatic testing with Jest or another testing library.
 
 - validate input, sanitize output
   Now the user is able to select the source. One could also provide an input field to specify the search query. User input coming into the app should be validated before using. Now we just pass it to the third party api, so it is not crucial. But still should be done. E.g. with https://www.npmjs.com/package/validator.
@@ -53,7 +57,7 @@ Here I will describe some of the aspects that are left off:
 
 - better styling
 
-  add more styling/css to make our output look nicer
+  I have chosen to use CSS Modules and Radium for this project to try out both. One could of course add more styling/css to make our output look nicer.
 
 - other languages?
 
